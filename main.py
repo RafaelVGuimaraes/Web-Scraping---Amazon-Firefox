@@ -46,3 +46,12 @@ while not isNextDisabled:
     )
     print(len(items))
     
+    for item in items:
+        title = item.find_element(By.TAG_NAME, 'h2').text
+        price = ""
+        link = item.find_element(
+            By.CLASS_NAME,
+            'a-link-normal'
+        ).get_attribute('href')
+        img = ""
+    
