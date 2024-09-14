@@ -8,7 +8,7 @@ import json
 elemToSearch = input("Informe o elemento que deseja procurar: ")
 client = MongoClient()
 mydb = client.AmazonScraping
-mycol = mydb.items
+mycol = mydb[elemToSearch] # cria uma nova collection com o nome do item procurado
 
 with open('data_amazon.json', 'w') as f:
     json.dump([], f)
