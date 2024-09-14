@@ -14,3 +14,7 @@ def write_json(new_data, filename='data_amazon.json'):
         file_data.append(new_data)
         file.seek(0)
         json.dump(file_data, file, indent=4)
+
+# inicialização do webdriver
+browser = webdriver.Firefox()
+browser.get('https://www.amazon.com.br')
