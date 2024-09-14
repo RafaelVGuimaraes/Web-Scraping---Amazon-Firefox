@@ -15,12 +15,13 @@ def write_json(new_data, filename='data_amazon.json'):
         file.seek(0)
         json.dump(file_data, file, indent=4)
 
+elemToSearch = input("Informe o item que deseja pesquisar: ")
 # inicialização do webdriver
 browser = webdriver.Firefox()
 browser.get('https://www.amazon.com.br')
 
 # entrando de forma dinamica com o elemento a ser pesquisado na Amazon
-elemToSearch = input("Informe o item que deseja pesquisar: ")
+
 elem = browser.find_element(By.ID, 'twotabsearchtextbox')
 elem.send_keys(elemToSearch)
 elem.send_keys(Keys.ENTER)
