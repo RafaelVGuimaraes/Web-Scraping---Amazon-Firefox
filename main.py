@@ -1,9 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from pymongo import MongoClient
 import time
 import json
- 
+
+client = MongoClient()
+mydb = client.AmazonScraping
+mycol = mydb.items
+
 with open('data_amazon.json', 'w') as f:
     json.dump([], f)
     
@@ -79,6 +84,13 @@ while not isNextDisabled:
                 "image": img
             }
         )
+        mycol.insert_one({
+                "title": title,
+                "price": price,
+                "link": link,
+                "image": img
+            })
+        
     
     try:
         next_btn = browser.find_element(
