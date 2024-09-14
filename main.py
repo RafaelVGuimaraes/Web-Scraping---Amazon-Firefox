@@ -75,4 +75,27 @@ while not isNextDisabled:
         print(f"Preço: {price}")
         print(f"Link: {link}")
         print(f"Título: {img}")
+        
+        write_json(
+            {
+                "title": title,
+                "price": price,
+                "link": link,
+                "image": img,
+            }
+        )
+        
+    try:
+        next_btn = browser.find_element(
+            By.CLASS_NAME,
+           's-pagination-next'
+        )
+        next_class = next_btn.get_attribute('class')
+        if 's-pagination-disabled' in next_class:
+            isNextDisabled = True
+            break
+        next_btn.click()
+    except Exception as e:
+        print(e)
+        isNextDisabled = True
     
