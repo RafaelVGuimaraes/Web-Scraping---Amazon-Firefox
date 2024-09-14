@@ -54,4 +54,25 @@ while not isNextDisabled:
             'a-link-normal'
         ).get_attribute('href')
         img = ""
+        
+        try:
+            price = item.find_element(
+                By.CLASS_NAME,
+                'a-price'
+            ).text.replace('\n', '.') # substitui o espaço em branco por "."
+        except:
+            pass
+        
+        try:
+            img = item.find_element(
+                By.CLASS_NAME,
+                's-image'
+            ).get_attribute('src')
+        except:
+            pass
+        
+        print(f"Título: {title}")
+        print(f"Preço: {price}")
+        print(f"Link: {link}")
+        print(f"Título: {img}")
     
