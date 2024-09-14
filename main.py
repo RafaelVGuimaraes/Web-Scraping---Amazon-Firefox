@@ -23,6 +23,19 @@ browser.get('https://www.amazon.com.br')
 # entrando de forma dinamica com o elemento a ser pesquisado na Amazon
 
 elem = browser.find_element(By.ID, 'twotabsearchtextbox')
-elem.send_keys(elemToSearch)
+elem.send_keys('xbox')
+time.sleep(2)
 elem.send_keys(Keys.ENTER)
 time.sleep(2)
+
+# inicializa a procura por todas as páginas da busca no site
+isNextDisabled = False
+while not isNextDisabled:
+    # encontrando os elementos de todos os resultados
+    element = browser.find_element(
+    By.CSS_SELECTOR,
+    'div.s-main-slot.s-result-list.s-search-results.sg-row'
+    )
+    print(element)
+    time.sleep(2)
+    
