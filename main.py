@@ -39,3 +39,10 @@ while not isNextDisabled:
     print(element)
     time.sleep(2)
     
+    # encontrando informações dos produtos procurados
+    items = element.find_elements(
+        By.XPATH,
+        '//div[@data-component-type="s-search-result"]'
+    )
+    print(len(items))
+    
