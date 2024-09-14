@@ -5,6 +5,7 @@ from pymongo import MongoClient
 import time
 import json
 
+elemToSearch = input("Informe o elemento que deseja procurar: ")
 client = MongoClient()
 mydb = client.AmazonScraping
 mycol = mydb.items
@@ -19,7 +20,7 @@ def write_json(new_data, filename='data_amazon.json'):
         file.seek(0)
         json.dump(file_data, file, indent=4)
 
-elemToSearch = input("Informe o elemento que deseja procurar: ")
+# elemToSearch = input("Informe o elemento que deseja procurar: ")
 # 1- Utilização do WebDriver
 browser = webdriver.Firefox()
 browser.get('https://www.amazon.com.br')
